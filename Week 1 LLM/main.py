@@ -1,9 +1,8 @@
-
+import os
 from dotenv import load_dotenv
 from google import genai
-import os
 
-# Step 1: Load API key from .env
+# Step 1: Load environment variables
 load_dotenv()
 
 # Step 2: Read Gemini API key
@@ -15,10 +14,10 @@ if not api_key:
 # Step 3: Initialize Gemini client
 client = genai.Client(api_key=api_key)
 
-# Step 4: Make first LLM call
+# Step 4: Send prompt to Gemini
 response = client.models.generate_content(
-    model="gemini-3.8-flash",
-    contents="What is Artificial Intelligence? Explain in simple words."
+   model="gemini-3.5-flash-lite",
+    contents="What is API"
 )
 
 # Step 5: Display response
